@@ -11,18 +11,24 @@ exp_values = np.exp(layer_outputs)
 
 # print(np.sum(layer_outputs)) # = 18.148
 
-print(np.sum(layer_outputs, axis=1, keepdims=True))
-# axis=0 -> sum of columns
-# axis=1 -> sum of rows
+# print(np.sum(layer_outputs, axis=1, keepdims=True))
+  # axis=0 -> sum of columns
+  # axis=1 -> sum of rows
 
-norm_values = exp_values / np.sum(exp_values, axis=1, keepdims=True)
+# norm_values = exp_values / np.sum(exp_values, axis=1, keepdims=True)
+# print(norm_values)
 
-print(norm_values)
+# CROSS ENTROPY LOSS
+import math
 
+softmax_output = [0.7, 0.1, 0.2]
+target_output = [1, 0, 0] # one hot encoding
 
+loss = -(math.log(softmax_output[0]) * target_output[0] +
+         math.log(softmax_output[1]) * target_output[1] +
+         math.log(softmax_output[2]) * target_output[2])
 
-
-
+print(loss)
 
 
 
